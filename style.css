@@ -1,0 +1,244 @@
+/* Resets */
+
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* Variables */
+
+/** Colors **/
+
+:root {
+  /* Primarios */
+
+  --blue: hsl(223, 87%, 63%);
+  --green: hsl(138, 87%, 63%);
+  --blue-light: hsl(223, 100%, 72%);
+
+  /* Segundarios */
+
+  --pale-blue: hsl(223, 100%, 88%);
+  --light-red: hsl(354, 100%, 66%);
+
+  /* Neutrales */
+
+  --gray: hsl(0, 0%, 59%);
+  --gray-light: hsl(0, 0%, 80%);
+  --very-dark-blue: hsl(209, 33%, 12%);
+  --white: hsl(0, 0%, 100%);
+}
+
+/* Normalizing */
+
+html {
+  font-size: 62.5%; /* 1rem = 10px */
+  font-family: "Libre Franklin", sans-serif;
+  color: var(--very-dark-blue);
+}
+
+/* Layout */
+
+.main_container {
+  /* width: 62.5rem; */
+  width: clamp(32.5rem, 80%, 62.5rem);
+  margin: 8.5rem auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.img_logo {
+  margin-bottom: 5.7rem;
+}
+
+.h1_title {
+  /* font-size: 4.7rem; */
+  font-size: clamp(2.1rem, -0.875rem + 8.333vw, 3.7rem);
+  font-weight: 300;
+  color: var(--gray);
+  margin-bottom: 2.2rem;
+}
+
+.h1_title b {
+  font-weight: 700;
+  color: var(--very-dark-blue);
+}
+
+.h2_title {
+  /* font-size: 1.9rem; */
+  font-size: clamp(1.2rem, -0.875rem + 5.2vw, 1.9rem);
+  font-weight: 300;
+  margin-bottom: 3.8rem;
+}
+
+.form_div {
+  width: 100%;
+  margin-bottom: 9rem;
+}
+
+.notify_form {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+input {
+  font-family: "Libre Franklin", sans-serif;
+}
+
+input[type="email"] {
+  width: 68%;
+  padding: 1.75rem;
+  padding-left: 3rem;
+  font-size: 1.5rem;
+  color: var(--gray);
+  border: 1px solid var(--gray-light);
+  border-radius: 10rem;
+}
+
+input[type="submit"] {
+  width: 30%;
+  padding: 1.75rem;
+  margin-left: auto;
+  background-color: var(--blue);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: white;
+  border: none;
+  border-radius: 10rem;
+  box-shadow: 0px 3px 5px var(--pale-blue);
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: var(--blue-light);
+}
+
+/*! Error Display I */
+
+.email_error {
+  margin: 1rem 0 0 3rem;
+  font-size: 1.3rem;
+  color: var(--light-red);
+  font-style: italic;
+  order: 3;
+  display: none;
+}
+.email_good {
+  margin: 1rem 0 0 3rem;
+  font-size: 1.3rem;
+  color: var(--green);
+  font-style: italic;
+  order: 3;
+  display: none;
+}
+
+.notification_show {
+  display: inline-block;
+}
+
+.red_border {
+  border: 1px solid var(--light-red) !important;
+}
+
+.green_border {
+  border: 1px solid var(--green) !important;
+}
+
+/*! END Error Display */
+
+.img_dashboard {
+  width: 100%;
+  object-fit: contain;
+  margin-bottom: 7.2rem;
+}
+
+.social_networks {
+  display: flex;
+  list-style-type: none;
+  margin-bottom: 2.7rem;
+}
+
+.social_networks li:not(:last-child) {
+  margin-right: 1.1rem;
+}
+
+.social_networks li {
+  width: 3.15rem;
+  height: 3.15rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--gray-light);
+  border-radius: 50%;
+  font-size: 1.35rem;
+  color: var(--blue);
+  cursor: pointer;
+}
+
+.social_networks a {
+  color: var(--blue);
+}
+
+.social_networks li:hover {
+  border: 1px solid var(--blue);
+  background-color: var(--blue);
+}
+.social_networks li:hover > a {
+  color: white;
+}
+
+.social_networks li i {
+  display: inline-block;
+}
+
+.copyright_txt {
+  font-size: 1.2rem;
+  color: var(--gray);
+}
+
+footer {
+  text-align: center;
+  width: 30rem;
+  margin: 2rem auto;
+  color: var(--gray);
+}
+
+footer a {
+  color: var(--blue-light);
+}
+
+@media screen and (max-width: 650px) {
+  .notify_form {
+    flex-wrap: nowrap;
+    flex-direction: column;
+  }
+
+  input[type="email"] {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+  input[type="submit"] {
+    width: 100%;
+  }
+
+  /*! Error Display I */
+
+  .email_error {
+    text-align: center;
+    margin: 0 0 3rem 0;
+    order: 0;
+  }
+
+  .email_good {
+    text-align: center;
+    margin: 0 0 3rem 0;
+    order: 0;
+  }
+
+  /*! END Error Display */
+}
